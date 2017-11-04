@@ -20,7 +20,7 @@ use InvalidArgumentException;
  * Add this trait to classes to prevent the default PHP magic methods from being
  * invoked which could cause an object to be mutatated implicitly.
  */
-trait Immutability
+trait ImmutableBehaviour
 {
     /**
      * Ensure properties are read-only
