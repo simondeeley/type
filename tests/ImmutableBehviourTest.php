@@ -59,7 +59,7 @@ final class ImmutableBehaviourTest extends TestCase
     public function testShouldPreventSettingNewProperty(): void
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageRegExp('"foo"');
+        $this->expectExceptionMessageRegExp('"bar"');
 
         self::$immutable->bar = 'baz';
     }
