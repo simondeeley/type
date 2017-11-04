@@ -51,7 +51,7 @@ final class ImmutableBehaviourTest extends TestCase
     public function testShouldPreventMutatingProperties(): void
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageRegExp('Cannot mutate property "foo"');
+        $this->expectExceptionMessageRegExp('"foo"');
 
         self::$immutable->foo = 'bar';
     }
@@ -59,7 +59,7 @@ final class ImmutableBehaviourTest extends TestCase
     public function testShouldPreventSettingNewProperty(): void
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageRegExp('Cannot mutate property "foo"');
+        $this->expectExceptionMessageRegExp('"foo"');
 
         self::$immutable->bar = 'baz';
     }
@@ -67,7 +67,7 @@ final class ImmutableBehaviourTest extends TestCase
     public function testShouldPreventUnsettingProperties(): void
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageRegExp('Cannot unset property "foo"');
+        $this->expectExceptionMessageRegExp('"foo"');
 
         unset(self::$immutable->foo);
     }
