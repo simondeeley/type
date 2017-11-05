@@ -17,7 +17,7 @@ namespace simondeeley;
  * Interface for objects that can compare an object with itself to determine
  * if the two objects are equal.
  */
-interface CompareType
+interface TypeComparison
 {
     /**
      * Compare two {@link Type} objects
