@@ -5,19 +5,20 @@ declare(strict_types=1);
  * For the full copyright information please view the LICENCE file that was
  * distributed with this package.
  *
- * @author    Simon Deeley <s.deeley@icloud.com>
  * @copyright Simon Deeley 2017
  */
 
-namespace simondeeley;
+namespace simondeeley\Type;
 
 /**
  * Compare equality between two Type objects
  *
  * Interface for objects that can compare an object with itself to determine
  * if the two objects are equal.
+ *
+ * @author  Simon Deeley <s.deeley@icloud.com>
  */
-interface TypeComparison
+interface TypeEquality
 {
     /**
      * Compare two {@link Type} objects
