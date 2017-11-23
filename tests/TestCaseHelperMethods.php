@@ -47,8 +47,7 @@ trait TestCaseHelperMethods
     final private function getMethodArray(ReflectionMethod $method): array
     {
         return [
-            // Random method name
-            array_rand(['foo', 'bar', 'baz'], 1),
+            $method->getName(),
 
             // Method parameters
             array_fill(
