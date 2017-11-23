@@ -31,7 +31,7 @@ trait TestCaseHelperMethods
     {
         return [
             // Random method name
-            $this->getRandomString('_'),
+            array_rand(['foo', 'bar', 'baz'], floor(rand(0,3))),
 
             // Method parameters
             array_fill(
@@ -45,11 +45,10 @@ trait TestCaseHelperMethods
     /**
      * Return a random string
      *
-     * @param   string $prefix
      * @return  string
      */
-    final private function getRandomString(string $prefix = null): string
+    final private function getRandomString(): string
     {
-        return (string) $prefix . substr(md5(microtime()), rand(0,99), 10);
+        return substr(md5(microtime()), rand(0,99), 5);
     }
 }
