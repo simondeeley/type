@@ -22,7 +22,7 @@ use simondeeley\Helpers\ImmutableObjectHelperMethods;
  *
  * @uses TestCase
  */
-final class ImmutableArrayTypeObjectTest extends TestCase
+final class ImmutableObjectTest extends TestCase
 {
     /**
      * Test interface implementations
