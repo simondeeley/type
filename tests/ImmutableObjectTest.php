@@ -61,7 +61,7 @@ final class ImmutableObjectTest extends TestCase
      *
      * @test
      * @dataProvider      implementedMethods
-     * @expectedException RuntimeException
+     * @expectedException \RuntimeException
      * @param             string $method    Method name
      * @param             array $parameter  The paramaters to pass
      * @return            void

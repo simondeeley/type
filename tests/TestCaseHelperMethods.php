@@ -54,7 +54,7 @@ trait TestCaseHelperMethods
                 [array_rand(['foo', 'bar', 'baz'], 1)],
                 array_fill(
                     0,
-                    count($method->getParameters()),
+                    count($method->getParameters() - 1),
                     $this->anything()
                 )
             )
