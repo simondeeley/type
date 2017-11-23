@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace simondeeley\Helpers;
 
+use RuntimeException;
+
 /**
  * Helper trait to implement immutable arrays
  *
