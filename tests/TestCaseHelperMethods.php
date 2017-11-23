@@ -29,12 +29,27 @@ trait TestCaseHelperMethods
      */
     final private function getMethodArray(ReflectionMethod $method): array
     {
-        return array_fill(
-            0,
-            count($method->getParameters() + 1),
-            function (): string {
-                return '_' . substr(md5(microtime()), rand(0,99), 10);
-            }
-        );
+        return [
+            // Random method name
+            $this->getRandomString('_'),
+
+            // Method parameters
+            array_fill(
+                0,
+                count($method->getParameters()),
+                $this->getRandomString()
+            )
+        ];
+    }
+
+    /**
+     * Return a random string
+     *
+     * @param string $prefix
+     * @return string
+     */
+    final private function getRandomString(string $prefix = null): string
+    {
+        return (string) $prefix . substr(md5(microtime()), rand(0,99), 10);
     }
 }

@@ -13,7 +13,7 @@ namespace simondeeley\Tests;
 use ReflectionClass;
 use ReflectionMethod;
 use PHPUnit\Framework\TestCase;
-use simondeeley\Type\ImmutableArrayType;
+use simondeeley\Type\ImmutablesType;
 use simondeeley\ImmutableArrayTypeObject;
 use simondeeley\Helpers\ImmutableArrayHelperMethods;
 use simondeeley\Helpers\ImmutableObjectHelperMethods;
@@ -67,7 +67,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * @param             array $parameter The paramaters to pass
      * @return            void
      */
-    final public function shouldThrowAnExceptions(string $method, array ...$parameter): void
+    final public function shouldThrowAnExceptions(string $method, array $parameter): void
     {
         $type = $this->getMockForAbstractClass(ImmutableArrayTypeObject::class);
 

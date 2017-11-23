@@ -65,7 +65,7 @@ final class ImmutableObjectTest extends TestCase
      * @param             array $parameter  The paramaters to pass
      * @return            void
      */
-    final public function shouldThrowAnException(string $method, array ...$parameters): void
+    final public function shouldThrowAnException(string $method, array $parameters): void
     {
         $type = $this->getMockForAbstractClass(ImmutableObject::class);
 
