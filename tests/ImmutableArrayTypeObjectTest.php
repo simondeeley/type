@@ -63,14 +63,14 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * @dataProvider      implementedMethods
      * @expectedException RuntimeException
      * @param             string $method    Method name
-     * @param             string $parameter The paramater to pass
+     * @param             array $parameter The paramaters to pass
      * @return            void
      */
-    final public function shouldThrowAnExceptions(string $method, string $parameter): void
+    final public function shouldThrowAnExceptions(string $method, array ...$parameter): void
     {
         $type = $this->getMockForAbstractClass(ImmutableArrayTypeObject::class);
 
-        $type->$method($parameter);
+        call_user_func_array(array($type, $method), $parameters);
     }
 
     /**

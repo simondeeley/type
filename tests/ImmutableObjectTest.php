@@ -25,7 +25,7 @@ use simondeeley\Helpers\ImmutableObjectHelperMethods;
 final class ImmutableObjectTest extends TestCase
 {
     use TestCaseHelperMethods;
-    
+
     /**
      * Test interface implementations
      *
@@ -61,14 +61,14 @@ final class ImmutableObjectTest extends TestCase
      * @dataProvider      implementedMethods
      * @expectedException RuntimeException
      * @param             string $method    Method name
-     * @param             string $parameter The paramater to pass
+     * @param             array $parameter  The paramaters to pass
      * @return            void
      */
-    final public function shouldThrowAnException(string $method, string $parameter): void
+    final public function shouldThrowAnException(string $method, array ...$parameters): void
     {
         $type = $this->getMockForAbstractClass(ImmutableObject::class);
 
-        $type->$method($parameter);
+        call_user_func_array(array($type, $method), $parameters);
     }
 
     /**
