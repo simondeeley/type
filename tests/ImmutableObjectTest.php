@@ -44,7 +44,7 @@ final class ImmutableObjectTest extends TestCase
      * @dataProvider  allMethods
      * @return        void
      */
-    final public function classShouldHaveCorrectMethods($method): void
+    final public function classShouldHaveCorrectMethods(string $method): void
     {
         $type = new ReflectionClass(ImmutableObject::class);
 
@@ -59,7 +59,7 @@ final class ImmutableObjectTest extends TestCase
      * @expectedException RuntimeException
      * @return            void
      */
-    final public function shouldThrowAnException($method): void
+    final public function shouldThrowAnException(string $method): void
     {
         $type = $this->getMockForAbstractClass(ImmutableObject::class);
 
@@ -69,14 +69,15 @@ final class ImmutableObjectTest extends TestCase
     /**
      * Return methods that should be present
      *
+     * @see https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
      * @final
      * @return array
      */
     final public function allMethods(): array
     {
         return array_map(
-            function ($v) {
-                return [$v];
+            function (ReflectionMethod $v) {
+                return [$v->getName()];
             },
             (new ReflectionClass(ImmutableType::class))->getMethods()
         );
@@ -85,14 +86,15 @@ final class ImmutableObjectTest extends TestCase
     /**
      * Returns methods that should throw exception
      *
+     * @see https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
      * @final
      * @return array
      */
     final public function implementedMethods(): array
     {
         return array_map(
-            function ($v) {
-                return [$v];
+            function (ReflectionMethod $v) {
+                return [$v->getName()];
             },
             (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
         );

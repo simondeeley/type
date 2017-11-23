@@ -35,7 +35,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     {
         $type = new ReflectionClass(ImmutableArrayTypeObject::class);
 
-        $this->assertTrue($type->implementsInterface(ImmutableArrayType::class));
+        $this->assertTrue($type->implementsInterface(ImmutableType::class));
         $this->assertTrue($type->implementsInterface(\ArrayAccess::class));
     }
 
@@ -44,9 +44,10 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      *
      * @test
      * @dataProvider  allMethods
+     * @param         string $method  Method name
      * @return        void
      */
-    final public function classShouldHaveCorrectMethods($method): void
+    final public function classShouldHaveCorrectMethods(string $method): void
     {
         $type = new ReflectionClass(ImmutableArrayTypeObject::class);
 
@@ -59,9 +60,10 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * @test
      * @dataProvider      implementedMethods
      * @expectedException RuntimeException
+     * @param             string $method  Method name
      * @return            void
      */
-    final public function shouldThrowAnException($method): void
+    final public function shouldThrowAnExceptions(string $method): void
     {
         $type = $this->getMockForAbstractClass(ImmutableArrayTypeObject::class);
 
@@ -76,10 +78,20 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      */
     final public function allMethods(): array
     {
-        return [array_merge(
-            (new ReflectionClass(ImmutableArrayTypeObject::class))->getMethods(),
-            (new ReflectionClass(\ArrayAccess::class))->getMethods()
-        )];
+        return array_merge(
+            array_map(
+                function (ReflectionMethod $v) {
+                    return [$v->getName()];
+                },
+                (new ReflectionClass(ImmutableArrayTypeObject::class))->getMethods()
+            ),
+            array_map(
+                function (ReflectionMethod $v) {
+                    return [$v->getName()];
+                },
+                (new ReflectionClass(\ArrayAccess::class))->getMethods()
+            )
+        );
     }
 
     /**
@@ -90,9 +102,19 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      */
     final public function implementedMethods(): array
     {
-        return [array_merge(
-            (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods(),
-            (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
-        )];
+        return array_merge(
+            array_map(
+                function (ReflectionMethod $v) {
+                    return [$v->getName()];
+                },
+                (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods()
+            ),
+            array_map(
+                function (ReflectionMethod $v) {
+                    return [$v->getName()];
+                },
+                (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
+            )
+        );
     }
 }
