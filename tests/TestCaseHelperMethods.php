@@ -51,7 +51,7 @@ trait TestCaseHelperMethods
 
             // Method parameters
             array_merge(
-                array_rand(['foo', 'bar', 'baz'], 1),
+                [array_rand(['foo', 'bar', 'baz'], 1)],
                 array_fill(
                     0,
                     count($method->getParameters()),
