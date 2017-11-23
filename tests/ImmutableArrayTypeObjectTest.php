@@ -92,7 +92,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
                 (new ReflectionClass(ImmutableArrayTypeObject::class))->getMethods()
             ),
             array_map(
-                function (ReflectionMethod $v) {
+                function (ReflectionMethod $method) {
                     return $this->getMethodArray($method);
                 },
                 (new ReflectionClass(\ArrayAccess::class))->getMethods()
@@ -118,7 +118,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
                 (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods()
             ),
             array_map(
-                function (ReflectionMethod $v) {
+                function (ReflectionMethod $method) {
                     return $this->getMethodArray($method);
                 },
                 (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()

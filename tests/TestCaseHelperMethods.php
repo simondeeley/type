@@ -24,8 +24,8 @@ trait TestCaseHelperMethods
      * Accepts a ReflectionMethod object and returns a pre-filled array of
      * parameters to test the method with.
      *
-     * @param ReflectionMethod $method
-     * @return array
+     * @param   ReflectionMethod $method
+     * @return  array
      */
     final private function getMethodArray(ReflectionMethod $method): array
     {
@@ -45,8 +45,8 @@ trait TestCaseHelperMethods
     /**
      * Return a random string
      *
-     * @param string $prefix
-     * @return string
+     * @param   string $prefix
+     * @return  string
      */
     final private function getRandomString(string $prefix = null): string
     {
