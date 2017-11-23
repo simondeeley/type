@@ -74,7 +74,9 @@ final class ImmutableObjectTest extends TestCase
      */
     final public function allMethods(): array
     {
-        return (new ReflectionClass(ImmutableType::class))->getMethods();
+        return [
+            (new ReflectionClass(ImmutableType::class))->getMethods()
+        ];
     }
 
     /**
@@ -85,6 +87,8 @@ final class ImmutableObjectTest extends TestCase
      */
     final public function implementedMethods(): array
     {
-        return (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods();
+        return [
+            (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
+        ];
     }
 }

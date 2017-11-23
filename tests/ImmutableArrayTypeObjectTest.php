@@ -76,10 +76,10 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      */
     final public function allMethods(): array
     {
-        return array_merge(
+        return [array_merge(
             (new ReflectionClass(ImmutableArrayTypeObject::class))->getMethods(),
             (new ReflectionClass(\ArrayAccess::class))->getMethods()
-        );
+        )];
     }
 
     /**
@@ -90,9 +90,9 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      */
     final public function implementedMethods(): array
     {
-        return array_merge(
+        return [array_merge(
             (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods(),
             (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
-        );
+        )];
     }
 }
