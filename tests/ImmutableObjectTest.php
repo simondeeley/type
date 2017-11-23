@@ -74,9 +74,12 @@ final class ImmutableObjectTest extends TestCase
      */
     final public function allMethods(): array
     {
-        return [
+        return array_map(
+            function ($v) {
+                return [$v];
+            },
             (new ReflectionClass(ImmutableType::class))->getMethods()
-        ];
+        );
     }
 
     /**
@@ -87,8 +90,11 @@ final class ImmutableObjectTest extends TestCase
      */
     final public function implementedMethods(): array
     {
-        return [
+        return array_map(
+            function ($v) {
+                return [$v];
+            },
             (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
-        ];
+        );
     }
 }
