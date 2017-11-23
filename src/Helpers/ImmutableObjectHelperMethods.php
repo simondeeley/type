@@ -28,7 +28,7 @@ trait ImmutableObjectHelperMethods
      * @return void
      * @throws RuntimeException
      */
-    final public function __set($property, $value)
+    final public function __set(string $property, $value): void
     {
         throw new RuntimeException(sprintf(
             'Cannot mutate property "%s" on immutable object %s',
@@ -44,7 +44,7 @@ trait ImmutableObjectHelperMethods
      * @return void
      * @throws RuntimeException
      */
-    final public function __unset($property)
+    final public function __unset(string $property): void
     {
         throw new RuntimeException(sprintf(
             'Cannot unset property "%s" on immutable object %s',
