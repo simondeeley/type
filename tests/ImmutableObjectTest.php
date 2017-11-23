@@ -82,7 +82,7 @@ final class ImmutableObjectTest extends TestCase
     final public function allMethods(): array
     {
         return array_map(
-            function (ReflectionMethod $v) {
+            function (ReflectionMethod $method) {
                 return $this->getMethodArray($method);
             },
             (new ReflectionClass(ImmutableType::class))->getMethods()
@@ -99,7 +99,7 @@ final class ImmutableObjectTest extends TestCase
     final public function implementedMethods(): array
     {
         return array_map(
-            function (ReflectionMethod $v) {
+            function (ReflectionMethod $method) {
                 return $this->getMethodArray($method);
             },
             (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()

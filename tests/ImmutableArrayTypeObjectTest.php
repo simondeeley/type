@@ -77,6 +77,8 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     /**
      * Return methods that should be present
      *
+     * @see https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
+     *
      * @final
      * @return array
      */
@@ -101,6 +103,8 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     /**
      * Returns methods that should throw exception
      *
+     * @see https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
+     *
      * @final
      * @return array
      */
@@ -108,7 +112,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     {
         return array_merge(
             array_map(
-                function (ReflectionMethod $v) {
+                function (ReflectionMethod $method) {
                     return $this->getMethodArray($method);
                 },
                 (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods()
