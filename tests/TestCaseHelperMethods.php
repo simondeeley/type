@@ -50,10 +50,13 @@ trait TestCaseHelperMethods
             $method->getName(),
 
             // Method parameters
-            array_fill(
-                0,
-                count($method->getParameters()),
-                $this->anything()
+            array_merge(
+                array_rand(['foo', 'bar', 'baz'], 1),
+                array_fill(
+                    0,
+                    count($method->getParameters()),
+                    $this->anything()
+                )
             )
         ];
     }
