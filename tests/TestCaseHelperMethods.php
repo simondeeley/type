@@ -20,7 +20,7 @@ use ReflectionMethod;
 trait TestCaseHelperMethods
 {
     /**
-     * Merge one or more methods to test
+    * Data provider pre-fill
      *
      * @param   string $classname
      * @return  array
@@ -29,35 +29,21 @@ trait TestCaseHelperMethods
     {
         return array_map(
             function (ReflectionMethod $method) {
-                return $this->getMethodArray($method);
+                return [
+                    $method->getName(),
+
+                    // Method parameters
+                    array_merge(
+                        [array_rand(['foo', 'bar', 'baz'], 1)],
+                        array_fill(
+                            0,
+                            count($method->getParameters() - 1),
+                            $this->anything()
+                        )
+                    )
+                ];
             },
             (new ReflectionClass($classname))->getMethods()
         );
-    }
-
-    /**
-     * Data provider pre-fill
-     *
-     * Accepts a ReflectionMethod object and returns a pre-filled array of
-     * parameters to test the method with.
-     *
-     * @param   ReflectionMethod $method
-     * @return  array
-     */
-    final private function getMethodArray(ReflectionMethod $method): array
-    {
-        return [
-            $method->getName(),
-
-            // Method parameters
-            array_merge(
-                [array_rand(['foo', 'bar', 'baz'], 1)],
-                array_fill(
-                    0,
-                    count($method->getParameters() - 1),
-                    $this->anything()
-                )
-            )
-        ];
     }
 }

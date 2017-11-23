@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace simondeeley\Tests;
 
+use RuntimeException;
 use ReflectionClass;
-use ReflectionMethod;
 use PHPUnit\Framework\TestCase;
 use simondeeley\Type\ImmutableType;
 use simondeeley\ImmutableObject;
