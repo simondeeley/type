@@ -29,5 +29,10 @@
         "psr-4": {
             "simondeeley\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "simondeeley\\Tests\\": "tests/"
+        }
     }
 }

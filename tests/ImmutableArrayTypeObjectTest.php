@@ -17,6 +17,7 @@ use simondeeley\Type\ImmutableArrayType;
 use simondeeley\ImmutableArrayTypeObject;
 use simondeeley\Helpers\ImmutableArrayHelperMethods;
 use simondeeley\Helpers\ImmutableObjectHelperMethods;
+use simondeeley\Tests\TestCaseHelperMethods;
 
 /**
  * Test ImmutableArrayTypeObject

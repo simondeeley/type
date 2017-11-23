@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 use simondeeley\Type\ImmutableType;
 use simondeeley\ImmutableObject;
 use simondeeley\Helpers\ImmutableObjectHelperMethods;
+use simondeeley\Tests\TestCaseHelperMethods;
 
 /**
  * Test ImmutableArrayTypeObject
