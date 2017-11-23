@@ -41,7 +41,7 @@ abstract class ImmutableArrayTypeObject implements ImmutableType, ArrayAccess
      * @param string $property
      * @return mixed
      */
-    abstract public function offsetGet(string $property);
+    abstract public function offsetGet($property);
 
     /**
      * Check that a property exists
@@ -52,7 +52,7 @@ abstract class ImmutableArrayTypeObject implements ImmutableType, ArrayAccess
      * @param string $property
      * @return bool
      */
-    abstract public function offsetExists(string $property);
+    abstract public function offsetExists($property);
 
     /**
      * Returns a description of the object
