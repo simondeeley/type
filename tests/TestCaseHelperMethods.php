@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace simondeeley\Tests;
 
+use ReflectionClass;
 use ReflectionMethod;
 
 /**
@@ -18,6 +19,22 @@ use ReflectionMethod;
  */
 trait TestCaseHelperMethods
 {
+    /**
+     * Merge one or more methods to test
+     *
+     * @param   string $classname
+     * @return  array
+     */
+    final private function getDataProviderArray(string $classname): array
+    {
+        return array_map(
+            function (ReflectionMethod $method) {
+                return $this->getMethodArray($method);
+            },
+            (new ReflectionClass($classname))->getMethods()
+        );
+    }
+
     /**
      * Data provider pre-fill
      *
@@ -37,18 +54,8 @@ trait TestCaseHelperMethods
             array_fill(
                 0,
                 count($method->getParameters()),
-                $this->getRandomString()
+                $this->anything()
             )
         ];
-    }
-
-    /**
-     * Return a random string
-     *
-     * @return  string
-     */
-    final private function getRandomString(): string
-    {
-        return substr(md5(microtime()), rand(0,99), 5);
     }
 }

@@ -45,10 +45,11 @@ final class ImmutableObjectTest extends TestCase
      *
      * @test
      * @dataProvider  allMethods
-     * @param         string $method  Method name
+     * @param         string $method    Method name
+     * @param         array $parameters The paramaters to pass
      * @return        void
      */
-    final public function classShouldHaveCorrectMethods(string $method): void
+    final public function classShouldHaveCorrectMethods(string $method, array $parameters): void
     {
         $type = new ReflectionClass(ImmutableObject::class);
 
@@ -81,12 +82,7 @@ final class ImmutableObjectTest extends TestCase
      */
     final public function allMethods(): array
     {
-        return array_map(
-            function (ReflectionMethod $method) {
-                return $this->getMethodArray($method);
-            },
-            (new ReflectionClass(ImmutableType::class))->getMethods()
-        );
+        return $this->getDataProviderArray(ImmutableType::class);
     }
 
     /**
@@ -98,11 +94,6 @@ final class ImmutableObjectTest extends TestCase
      */
     final public function implementedMethods(): array
     {
-        return array_map(
-            function (ReflectionMethod $method) {
-                return $this->getMethodArray($method);
-            },
-            (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
-        );
+        return $this->getDataProviderArray(ImmutableObjectHelperMethods::class);
     }
 }

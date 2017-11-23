@@ -48,9 +48,10 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * @test
      * @dataProvider  allMethods
      * @param         string $method    Method name
+     * @param         array $parameter  The paramaters to pass
      * @return        void
      */
-    final public function classShouldHaveCorrectMethods(string $method): void
+    final public function classShouldHaveCorrectMethods(string $method, array $parameters): void
     {
         $type = new ReflectionClass(ImmutableArrayTypeObject::class);
 
@@ -64,7 +65,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * @dataProvider      implementedMethods
      * @expectedException RuntimeException
      * @param             string $method    Method name
-     * @param             array $parameter The paramaters to pass
+     * @param             array $parameters The paramaters to pass
      * @return            void
      */
     final public function shouldThrowAnExceptions(string $method, array $parameters): void
@@ -85,18 +86,8 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     final public function allMethods(): array
     {
         return array_merge(
-            array_map(
-                function (ReflectionMethod $method) {
-                    return $this->getMethodArray($method);
-                },
-                (new ReflectionClass(ImmutableArrayTypeObject::class))->getMethods()
-            ),
-            array_map(
-                function (ReflectionMethod $method) {
-                    return $this->getMethodArray($method);
-                },
-                (new ReflectionClass(\ArrayAccess::class))->getMethods()
-            )
+            $this->getDataProviderArray(ImmutableArrayTypeObject::class),
+            $this->getDataProviderArray(\ArrayAccess::class)
         );
     }
 
@@ -111,18 +102,8 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     final public function implementedMethods(): array
     {
         return array_merge(
-            array_map(
-                function (ReflectionMethod $method) {
-                    return $this->getMethodArray($method);
-                },
-                (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods()
-            ),
-            array_map(
-                function (ReflectionMethod $method) {
-                    return $this->getMethodArray($method);
-                },
-                (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
-            )
+            $this->getDataProviderArray(ImmutableArrayHelperMethods::class),
+            $this->getDataProviderArray(ImmutableObjectHelperMethods::class)
         );
     }
 }
