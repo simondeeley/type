@@ -52,7 +52,7 @@ abstract class ImmutableArrayTypeObject implements ImmutableType, ArrayAccess
      * @param string $property
      * @return bool
      */
-    abstract public function offsetExists(string $property): bool;
+    abstract public function offsetExists(string $property);
 
     /**
      * Returns a description of the object
