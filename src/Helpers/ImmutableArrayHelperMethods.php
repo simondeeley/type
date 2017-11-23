@@ -30,7 +30,7 @@ trait ImmutableArrayHelperMethods
      * @return void
      * @throws RuntimeException
      */
-    final public function offsetSet(string $property, $value): void
+    final public function offsetSet($property, $value)
     {
         throw new RuntimeException(sprintf(
             'Cannot mutate property "%s" on immutable object %s',
@@ -48,7 +48,7 @@ trait ImmutableArrayHelperMethods
      * @return void
      * @throws RuntimeException
      */
-    final public function offsetUnset(string $property): void
+    final public function offsetUnset($property)
     {
         throw new RuntimeException(sprintf(
             'Cannot unset property "%s" on immutable object %s',
