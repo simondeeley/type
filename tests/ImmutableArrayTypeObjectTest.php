@@ -25,6 +25,8 @@ use simondeeley\Helpers\ImmutableObjectHelperMethods;
  */
 final class ImmutableArrayTypeObjectTest extends TestCase
 {
+    use TestCaseHelperMethods;
+
     /**
      * Test interface implementations
      *
@@ -81,14 +83,14 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     {
         return array_merge(
             array_map(
-                function (ReflectionMethod $v) {
-                    return [$v->getName()];
+                function (ReflectionMethod $method) {
+                    return $this->getMethodArray($method);
                 },
                 (new ReflectionClass(ImmutableArrayTypeObject::class))->getMethods()
             ),
             array_map(
                 function (ReflectionMethod $v) {
-                    return [$v->getName()];
+                    return $this->getMethodArray($method);
                 },
                 (new ReflectionClass(\ArrayAccess::class))->getMethods()
             )
@@ -106,13 +108,13 @@ final class ImmutableArrayTypeObjectTest extends TestCase
         return array_merge(
             array_map(
                 function (ReflectionMethod $v) {
-                    return [$v->getName(), bin2hex(random_bytes(8))];
+                    return $this->getMethodArray($method);
                 },
                 (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods()
             ),
             array_map(
                 function (ReflectionMethod $v) {
-                    return [$v->getName(), bin2hex(random_bytes(8))];
+                    return $this->getMethodArray($method);
                 },
                 (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
             )

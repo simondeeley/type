@@ -24,6 +24,8 @@ use simondeeley\Helpers\ImmutableObjectHelperMethods;
  */
 final class ImmutableObjectTest extends TestCase
 {
+    use TestCaseHelperMethods;
+    
     /**
      * Test interface implementations
      *
@@ -80,7 +82,7 @@ final class ImmutableObjectTest extends TestCase
     {
         return array_map(
             function (ReflectionMethod $v) {
-                return [$v->getName()];
+                return $this->getMethodArray($method);
             },
             (new ReflectionClass(ImmutableType::class))->getMethods()
         );
@@ -97,7 +99,7 @@ final class ImmutableObjectTest extends TestCase
     {
         return array_map(
             function (ReflectionMethod $v) {
-                return [$v->getName(), bin2hex(random_bytes(8))];
+                return $this->getMethodArray($method);
             },
             (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
         );
