@@ -31,7 +31,7 @@ trait TestCaseHelperMethods
     {
         return [
             // Random method name
-            array_rand(['foo', 'bar', 'baz'], floor(rand(0,3))),
+            array_rand(['foo', 'bar', 'baz'], 1),
 
             // Method parameters
             array_fill(
