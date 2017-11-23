@@ -44,7 +44,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      *
      * @test
      * @dataProvider  allMethods
-     * @param         string $method  Method name
+     * @param         string $method    Method name
      * @return        void
      */
     final public function classShouldHaveCorrectMethods(string $method): void
@@ -60,14 +60,15 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * @test
      * @dataProvider      implementedMethods
      * @expectedException RuntimeException
-     * @param             string $method  Method name
+     * @param             string $method    Method name
+     * @param             string $parameter The paramater to pass
      * @return            void
      */
-    final public function shouldThrowAnExceptions(string $method): void
+    final public function shouldThrowAnExceptions(string $method, string $parameter): void
     {
         $type = $this->getMockForAbstractClass(ImmutableArrayTypeObject::class);
 
-        $type->$method();
+        $type->$method($parameter);
     }
 
     /**
@@ -105,13 +106,13 @@ final class ImmutableArrayTypeObjectTest extends TestCase
         return array_merge(
             array_map(
                 function (ReflectionMethod $v) {
-                    return [$v->getName()];
+                    return [$v->getName(), bin2hex(random_bytes(8))];
                 },
                 (new ReflectionClass(ImmutableArrayHelperMethods::class))->getMethods()
             ),
             array_map(
                 function (ReflectionMethod $v) {
-                    return [$v->getName()];
+                    return [$v->getName(), bin2hex(random_bytes(8))];
                 },
                 (new ReflectionClass(ImmutableObjectHelperMethods::class))->getMethods()
             )
