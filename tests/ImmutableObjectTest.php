@@ -21,6 +21,7 @@ use simondeeley\Tests\TestCaseHelperMethods;
 /**
  * Test ImmutableArrayTypeObject
  *
+ * @author Simon Deeley <s.deeley@icloud.com>
  * @uses TestCase
  */
 final class ImmutableObjectTest extends TestCase
@@ -44,10 +45,10 @@ final class ImmutableObjectTest extends TestCase
      * Test class has methods
      *
      * @test
-     * @dataProvider  allMethods
-     * @param         string $method    Method name
-     * @param         array $parameters The paramaters to pass
-     * @return        void
+     * @dataProvider allMethods
+     * @param string $method - Method name
+     * @param array $parameters - The paramaters to pass
+     * @return void
      */
     final public function classShouldHaveCorrectMethods(string $method, array $parameters): void
     {
@@ -60,11 +61,11 @@ final class ImmutableObjectTest extends TestCase
      * Test exceptions are thrown
      *
      * @test
-     * @dataProvider      implementedMethods
+     * @dataProvider implementedMethods
      * @expectedException \RuntimeException
-     * @param             string $method    Method name
-     * @param             array $parameter  The paramaters to pass
-     * @return            void
+     * @param string $method - Method name
+     * @param array $parameter - The paramaters to pass
+     * @return void
      */
     final public function shouldThrowAnException(string $method, array $parameters): void
     {

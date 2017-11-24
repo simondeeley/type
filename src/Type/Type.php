@@ -18,7 +18,7 @@ namespace simondeeley\Type;
  * which should return a string literal which describes the type of the class
  * in which it is implemented.
  *
- * @author  Simon Deeley <s.deeley@icloud.com>
+ * @author Simon Deeley <s.deeley@icloud.com>
  */
 interface Type
 {
@@ -32,10 +32,8 @@ interface Type
      * or rely on, parameters passed to it. Exceptions are not expected to be
      * thrown from implementations of this method.
      *
-     * @since 0.5.0
-     *
      * @static
-     * @return string
+     * @return string - Returns the name of the object type
      */
     public static function getType(): string;
 }

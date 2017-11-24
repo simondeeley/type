@@ -19,7 +19,7 @@ namespace simondeeley\Type;
  * methods which can mutate objects if they are not correctly implemented. Here,
  * each should throw an exception to prevent such mutations.
  *
- * @author  Simon Deeley <s.deeley@icloud.com>
+ * @author Simon Deeley <s.deeley@icloud.com>
  */
 interface ImmutableType extends Type
 {
@@ -35,12 +35,12 @@ interface ImmutableType extends Type
      *
      * @see http://php.net/manual/en/language.oop5.overloading.php#object.set
      *
-     * @param string $arg
-     * @param mixed $value
+     * @param string $property - Property name to set
+     * @param mixed $value - Mixed value to set property to
      * @return void
-     * @throws RuntimeException
+     * @throws RuntimeException - Always throws an exception
      */
-    public function __set(string $arg, $value): void;
+    public function __set(string $property, $value): void;
 
     /**
      * Prevent unsetting of properties
@@ -53,9 +53,9 @@ interface ImmutableType extends Type
      *
      * @see http://php.net/manual/en/language.oop5.overloading.php#object.unset
      *
-     * @param string $arg
+     * @param string $property - Property name to set
      * @return void
-     * @throws RuntimeException
+     * @throws RuntimeException - Always throws an exception
      */
-    public function __unset(string $arg): void;
+    public function __unset(string $property): void;
 }

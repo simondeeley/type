@@ -25,10 +25,10 @@ trait ImmutableObjectHelperMethods
     /**
      * Prevent implicit setting of properties
      *
-     * @param string $property
-     * @param mixed $value
+     * @param string $property - Property name to set
+     * @param mixed $value - Mixed value to set property to
      * @return void
-     * @throws RuntimeException
+     * @throws RuntimeException - Always throws an exception
      */
     final public function __set(string $property, $value): void
     {
@@ -42,9 +42,9 @@ trait ImmutableObjectHelperMethods
     /**
      * Prevent implicit unsetting of properties
      *
-     * @param string $property
+     * @param string $property - Property name to set
      * @return void
-     * @throws RuntimeException
+     * @throws RuntimeException - Always throws an exception
      */
     final public function __unset(string $property): void
     {

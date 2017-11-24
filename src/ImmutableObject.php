@@ -17,9 +17,9 @@ use simondeeley\Helpers\ImmutableObjectHelperMethods;
  * Immutable object
  *
  * This abstract class implements basic immutable functionaility. Any child
- * class would need to implement {@link getType}.
+ * class would need to implement {@link Type::getType}.
  *
- * @author  Simon Deeley <s.deeley@icloud.com>
+ * @author Simon Deeley <s.deeley@icloud.com>
  *
  * @abstract
  * @uses ImmutableObjectHelperMethods
@@ -35,7 +35,7 @@ abstract class ImmutableObject implements ImmutableType
      *
      * @static
      * @abstract
-     * @return string
+     * @return string - Returns the name of the object type
      */
     abstract public static function getType(): string;
 }

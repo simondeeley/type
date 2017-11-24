@@ -16,7 +16,7 @@ namespace simondeeley\Type;
  * Interface for objects that can compare an object with itself to determine
  * if the two objects are equal.
  *
- * @author  Simon Deeley <s.deeley@icloud.com>
+ * @author Simon Deeley <s.deeley@icloud.com>
  */
 interface TypeEquality
 {
@@ -28,9 +28,9 @@ interface TypeEquality
      * boolean true if they are equal, false otherwise. The method may throw
      * an exception if an error occurrs when trying to compare the objects.
      *
-     * @param Type $object
-     * @return bool
-     * @throws InvalidArgumentException
+     * @param Type $object - An object to test equality against
+     * @return bool - Returns true if objects are equal
+     * @throws InvalidArgumentException - Thrown if objects cannot be compared
      */
     public function equals(Type $object): bool;
 }

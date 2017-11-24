@@ -18,7 +18,7 @@ use RuntimeException;
  * Implements two basic methods to prevent accidental or implicit modification
  * of an arrays properties.
  *
- * @author  Simon Deeley <s.deeley@icloud.com>
+ * @author Simon Deeley <s.deeley@icloud.com>
  */
 trait ImmutableArrayHelperMethods
 {
@@ -27,10 +27,10 @@ trait ImmutableArrayHelperMethods
      *
      * @see http://php.net/manual/en/arrayaccess.offsetset.php
      *
-     * @param string $property
-     * @param mixed $value
+     * @param string $property - Property name to set
+     * @param mixed $value - Mixed value to set property to
      * @return void
-     * @throws RuntimeException
+     * @throws RuntimeException - Always throws an exception
      */
     final public function offsetSet($property, $value)
     {
@@ -46,9 +46,9 @@ trait ImmutableArrayHelperMethods
      *
      * @see http://php.net/manual/en/arrayaccess.offsetunset.php
      *
-     * @param string $property
+     * @param string $property - Property name to unset
      * @return void
-     * @throws RuntimeException
+     * @throws RuntimeException - Always throws an exception
      */
     final public function offsetUnset($property)
     {

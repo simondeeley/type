@@ -16,6 +16,7 @@ use ReflectionMethod;
 /**
  * Helper method for testing purposes
  *
+ * @author Simon Deeley <s.deeley@icloud.com>
  */
 trait TestCaseHelperMethods
 {
