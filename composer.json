@@ -1,38 +1,38 @@
 {
-    "name": "simondeeley/type",
-    "description": "Immuatble object behaviour for PHP",
-    "version": "0.4.0",
-    "type": "library",
-    "keywords": ["php", "behaviour", "immutable"],
-    "homepage": "https://github.com/simondeeley",
-    "license": "GPL-3.0",
-    "authors": [
-        {
-            "name": "Simon Deeley",
-            "email": "s.deeley@icloud.com",
-            "homepage": "https://github.com/simondeeley",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/simondeeley/type/issues",
-        "source": "https://github.com/simondeeley/type",
-        "docs": "https://github.com/simondeeley/type/wiki"
-    },
-    "require": {
-        "php": "~7.1"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~6.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "simondeeley\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "simondeeley\\Tests\\": "tests/"
-        }
+  "name": "simondeeley/type",
+  "description": "Immuatble object behaviour for PHP",
+  "version": "1.0.0",
+  "type": "library",
+  "keywords": ["php", "behaviour", "immutable"],
+  "homepage": "https://github.com/simondeeley",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Simon Deeley",
+      "email": "s.deeley@icloud.com",
+      "homepage": "https://github.com/simondeeley",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "issues": "https://github.com/simondeeley/type/issues",
+    "source": "https://github.com/simondeeley/type",
+    "docs": "https://github.com/simondeeley/type/blob/master/README.md"
+  },
+  "require": {
+    "php": "~7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "simondeeley\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "simondeeley\\Tests\\": "tests/"
+    }
+  }
 }
