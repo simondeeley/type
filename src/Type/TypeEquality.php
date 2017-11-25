@@ -5,19 +5,20 @@ declare(strict_types=1);
  * For the full copyright information please view the LICENCE file that was
  * distributed with this package.
  *
- * @author    Simon Deeley <s.deeley@icloud.com>
  * @copyright Simon Deeley 2017
  */
 
-namespace simondeeley;
+namespace simondeeley\Type;
 
 /**
  * Compare equality between two Type objects
  *
  * Interface for objects that can compare an object with itself to determine
  * if the two objects are equal.
+ *
+ * @author Simon Deeley <s.deeley@icloud.com>
  */
-interface TypeComparison
+interface TypeEquality
 {
     /**
      * Compare two {@link Type} objects
@@ -27,9 +28,9 @@ interface TypeComparison
      * boolean true if they are equal, false otherwise. The method may throw
      * an exception if an error occurrs when trying to compare the objects.
      *
-     * @param Type $object
-     * @return bool
-     * @throws InvalidArgumentException
+     * @param Type $object - An object to test equality against
+     * @return bool - Returns true if objects are equal
+     * @throws InvalidArgumentException - Thrown if objects cannot be compared
      */
     public function equals(Type $object): bool;
 }
