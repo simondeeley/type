@@ -17,7 +17,7 @@
   "support": {
     "issues": "https://github.com/simondeeley/type/issues",
     "source": "https://github.com/simondeeley/type",
-    "docs": "https://github.com/simondeeley/type/wiki"
+    "docs": "https://github.com/simondeeley/type/blob/master/README.md"
   },
   "require": {
     "php": "~7.1"
