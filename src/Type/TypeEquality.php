@@ -20,6 +20,8 @@ namespace simondeeley\Type;
  */
 interface TypeEquality
 {
+    const STRICT_COMPARISON = 1;
+
     /**
      * Compare two {@link Type} objects
      *
@@ -29,8 +31,10 @@ interface TypeEquality
      * an exception if an error occurrs when trying to compare the objects.
      *
      * @param Type $object - An object to test equality against
+     * @param int|null $flags - Optional settings which can be passed to alter
+     *                          the behaviour of the method
      * @return bool - Returns true if objects are equal
      * @throws InvalidArgumentException - Thrown if objects cannot be compared
      */
-    public function equals(Type $object): bool;
+    public function equals(Type $object, int $flags = null): bool;
 }
