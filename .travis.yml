@@ -1,6 +1,9 @@
 language: php
 sudo: false
 
+git:
+  depth: 3
+
 matrix:
   include:
     - php: 7.1
