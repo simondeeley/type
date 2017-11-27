@@ -54,7 +54,7 @@ trait TypeEqualityHelperMethods
             ));
         }
 
-        return ($this->getType() === $type->getType()) ? true : false;
+        return ($this::getType() === $type::getType()) ? true : false;
     }
 
     /**
