@@ -39,8 +39,8 @@ final class TypeEqualityHelperMethodsTest extends TestCase
      */
     final public function methodsShouldReturnCorrectBooleanValue(Type $subject, Type $target, int $flags, bool $isSameTypeAs, bool $isSameObjectAs): void
     {
-        $this->assertEquals($isSameTypeAs, $subject->isSameTypeAs($target, $flags));
-        $this->assertEquals($isSameObjectAs, $subject->isSameObjectAs($target, $flags));
+        $this->assertEquals($isSameTypeAs, $subject->foo($target, $flags));
+        $this->assertEquals($isSameObjectAs, $subject->bar($target, $flags));
     }
 
     /**
@@ -55,7 +55,7 @@ final class TypeEqualityHelperMethodsTest extends TestCase
     {
         $subject = new class { // Note does not implement correct interface
             use TypeEqualityHelperMethods {
-                isSameTypeAs as public isSameTypeAs;
+                isSameTypeAs as public foo;
             }
         };
 
@@ -66,7 +66,7 @@ final class TypeEqualityHelperMethodsTest extends TestCase
             }
         };
 
-        $subject->isSameTypeAs($target);
+        $subject->foo($target);
     }
 
     /**
@@ -79,11 +79,11 @@ final class TypeEqualityHelperMethodsTest extends TestCase
     {
         $one = new class implements Type {
             use TypeEqualityHelperMethods {
-                isSameTypeAs as public isSameTypeAs;
+                isSameTypeAs as public foo;
             }
 
             use TypeEqualityHelperMethods {
-                isSameObjectAs as public isSameObjectAs;
+                isSameObjectAs as public bar;
             }
 
             final public static function getType(): string
@@ -93,14 +93,6 @@ final class TypeEqualityHelperMethodsTest extends TestCase
         };
 
         $two = new class implements Type {
-            use TypeEqualityHelperMethods {
-                isSameTypeAs as public isSameTypeAs;
-            }
-
-            use TypeEqualityHelperMethods {
-                isSameObjectAs as public isSameObjectAs;
-            }
-
             final public static function getType(): string
             {
                 return 'test';
@@ -108,14 +100,6 @@ final class TypeEqualityHelperMethodsTest extends TestCase
         };
 
         $three = new class implements Type {
-            use TypeEqualityHelperMethods {
-                isSameTypeAs as public isSameTypeAs;
-            }
-
-            use TypeEqualityHelperMethods {
-                isSameObjectAs as public isSameObjectAs;
-            }
-
             final public static function getType(): string
             {
                 return 'bar';
