@@ -159,7 +159,7 @@ final class TypeEqualityHelperMethodsTest extends TestCase
                 $two,
                 TypeEquality::IGNORE_OBJECT_IDENTITY,
                 true,
-                false,
+                true,
             ],
 
             'Not equal objects with flag set to IGNORE_OBJECT_IDENTITY' => [
@@ -167,7 +167,7 @@ final class TypeEqualityHelperMethodsTest extends TestCase
                 $three,
                 TypeEquality::IGNORE_OBJECT_IDENTITY,
                 false,
-                false,
+                true,
             ],
 
             'Equal objects with flag set to IGNORE_OBJECT_TYPE | IGNORE_OBJECT_IDENTITY' => [
