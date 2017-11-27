@@ -54,8 +54,11 @@ final class TypeEqualityHelperMethodsTest extends TestCase
     final public function shouldThrowAnException(): void
     {
         $subject = new class { // Note does not implement correct interface
-            use TypeEqualityHelperMethods {
-                isSameTypeAs as public foo;
+            use TypeEqualityHelperMethods;
+
+            final public function foo(Type $type, int $flags): bool
+            {
+                return $this->isSameTypeAs($type, $flags);
             }
         };
 
@@ -78,12 +81,16 @@ final class TypeEqualityHelperMethodsTest extends TestCase
     final public function sameTypeMethodData(): array
     {
         $one = new class implements Type {
-            use TypeEqualityHelperMethods {
-                isSameTypeAs as public foo;
+            use TypeEqualityHelperMethods;
+
+            final public function foo(Type $type, int $flags): bool
+            {
+                return $this->isSameTypeAs($type, $flags);
             }
 
-            use TypeEqualityHelperMethods {
-                isSameObjectAs as public bar;
+            final public function bar(Type $type, int $flags): bool
+            {
+                return $this->isSameObjectAs($type, $flags);
             }
 
             final public static function getType(): string
