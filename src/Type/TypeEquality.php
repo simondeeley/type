@@ -20,7 +20,8 @@ namespace simondeeley\Type;
  */
 interface TypeEquality
 {
-    const STRICT_COMPARISON = 1;
+    const IGNORE_OBJECT_TYPE = 0b0001;
+    const IGNORE_OBJECT_IDENTITY = 0b0010;
 
     /**
      * Compare two {@link Type} objects
