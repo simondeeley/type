@@ -49,5 +49,5 @@ interface TypeEquality
      * @return bool - Returns true if objects are equal
      * @throws InvalidArgumentException - Thrown if objects cannot be compared
      */
-    public function equals(Type $object, int $flags = TypeEquality::IGNORE_OBJECT_IDENTITY): bool;
+    public function equals(Type $object, int $flags = self::IGNORE_OBJECT_IDENTITY): bool;
 }
