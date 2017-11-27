@@ -56,7 +56,7 @@ final class TypeEqualityHelperMethodsTest extends TestCase
         $subject = new class { // Note does not implement correct interface
             use TypeEqualityHelperMethods;
 
-            final public function foo(Type $type, int $flags): bool
+            final public function foo(Type $type, int $flags = null): bool
             {
                 return $this->isSameTypeAs($type, $flags);
             }
