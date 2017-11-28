@@ -64,7 +64,7 @@ Oftentimes there is a need to check that two objects are equal. This package pro
 public bool equals ( Type $type [, int $flags ] )
 ```
 
-This method takes an object of type `simondeeley\Type\Type` as an argument. This interface is the base interface that all other 'types' are built on. This method also optionally accepts a further parameter - a bitwise integer flag. This can be used to enforce or ignore certain constraints. Currently, two flags are supported:
+This method takes an object of type [`simondeeley\Type\Type`](https://github.com/simondeeley/type/blob/master/src/Type/Type.php) as an argument. This interface is the base interface that all other 'types' are built on. This method also optionally accepts a further parameter - a bitwise integer flag. This can be used to enforce or ignore certain constraints. Currently, two flags are supported:
 
 - `TypeEquality::IGNORE_OBJECT_TYPE`
 
