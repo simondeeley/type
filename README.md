@@ -33,9 +33,9 @@ class Foo extends ImmutableObject
 }
 ```
 
-This is the starting point to creating an immutable object. Behind the scenes, the base class of `ImmutableObject` sets up a few sensible defaults including overriding PHP's magic methods `__set` and `__unset` to prevent implicitly setting (or unsetting) of class properties.
+This is the starting point to creating an immutable object. Behind the scenes, the base class of [`ImmutableObject`](https://github.com/simondeeley/type/blob/master/src/ImmutableObject.php) sets up a few sensible defaults including overriding PHP's magic methods `__set` and `__unset` to prevent implicitly setting (or unsetting) of class properties.
 
-There is one further method that you need to implement in your concrete classes which is `getType`. This method is inherited from the interface `simondeeley\Type\Type` which defines one static method (getType) which should return a string describing the type of the object.
+There is one further method that you need to implement in your concrete classes which is `getType`. This method is inherited from the interface [`simondeeley\Type\Type`](https://github.com/simondeeley/type/blob/master/src/Type/Type.php) which defines one static method `getType` which should return a string describing the type of the object.
 
 It might seem strange having this method but it's useful when defining a bunch of objects which might, for example, share the same base class but who's identity you want to differentiate.
 
@@ -51,14 +51,14 @@ public static function getType(): string
 Going Further
 =============
 
-As well as `ImmutableObject` this package also provides a second base class for objects which need to behave like arrays, implementing PHP's built-in `ArrayAccess`. This behaviour is provided in `ImmutableArrayTypeObject` which extends `ImmutableObject` and includes default implementations of `offsetSet` and `offsetUnset`.
+As well as [`ImmutableObject`](https://github.com/simondeeley/type/blob/master/src/ImmutableObject.php) this package also provides a second base class for objects which need to behave like arrays, implementing PHP's built-in [`ArrayAccess`](http://php.net/manual/en/class.arrayaccess.php). This behaviour is provided in [`ImmutableArrayTypeObject`](https://github.com/simondeeley/type/blob/master/src/ImmutableArrayTypeObject.php) which extends [`ImmutableObject`](https://github.com/simondeeley/type/blob/master/src/ImmutableObject.php) and includes default implementations of `offsetSet` and `offsetUnset`.
 
 Each of these classes uses a few traits which provide the default implementations described above. You can explore these as well as the interfaces in the code which is fully documented and annotated.
 
 Testing Equality
 ================
 
-Oftentimes there is a need to check that two objects are equal. This package provides a `TypeEquality` interface which describes one method, `equals`.
+Oftentimes there is a need to check that two objects are equal. This package provides a [`TypeEquality`](https://github.com/simondeeley/type/blob/master/src/Type/TypeEquality.php) interface which describes one method, `equals`.
 
 ```php
 public bool equals ( Type $type [, int $flags ] )
