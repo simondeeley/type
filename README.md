@@ -67,9 +67,11 @@ public bool equals ( Type $type [, int $flags ] )
 This method takes an object of type `simondeeley\Type\Type` as an argument. This interface is the base interface that all other 'types' are built on. This method also optionally accepts a further parameter - a bitwise integer flag. This can be used to enforce or ignore certain constraints. Currently, two flags are supported:
 
 - `TypeEquality::IGNORE_OBJECT_TYPE`
+
 ...Set this flag to ignore the type of the object which is set by `Type::getType`.
 
 - `TypeEquality::IGNORE_OBJECT_IDENTITY`
+
 ...Set this flag to ignore checking that an object points to the same PHP reference, for example by checking the value obtained by invoking `spl_object_hash`.
 
 Bitwise operators can be combined by using the pipe '|' operator, for example `$foo->equals($bar, TypeEquality::IGNORE_OBJECT_TYPE | TypeEquality::IGNORE_OBJECT_IDENTITY)`
