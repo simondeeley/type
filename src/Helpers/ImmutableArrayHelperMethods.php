@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace simondeeley\Helpers;
 
-use RuntimeException;
+use simondeeley\Exceptions\ImmutableMethodCallException;
 
 /**
  * Helper trait to implement immutable arrays
@@ -30,15 +30,11 @@ trait ImmutableArrayHelperMethods
      * @param string $property - Property name to set
      * @param mixed $value - Mixed value to set property to
      * @return void
-     * @throws RuntimeException - Always throws an exception
+     * @throws ImmutableMethodCallException - Always throws an exception
      */
     final public function offsetSet($property, $value)
     {
-        throw new RuntimeException(sprintf(
-            'Cannot mutate property "%s" on immutable object %s',
-            $property,
-            get_class($this)
-        ));
+        throw new ImmutableMethodCallException;
     }
 
     /**
@@ -48,14 +44,10 @@ trait ImmutableArrayHelperMethods
      *
      * @param string $property - Property name to unset
      * @return void
-     * @throws RuntimeException - Always throws an exception
+     * @throws ImmutableMethodCallException - Always throws an exception
      */
     final public function offsetUnset($property)
     {
-        throw new RuntimeException(sprintf(
-            'Cannot unset property "%s" on immutable object %s',
-            $property,
-            get_class($this)
-        ));
+        throw new ImmutableMethodCallException;
     }
 }

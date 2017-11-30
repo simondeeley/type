@@ -27,15 +27,4 @@ use simondeeley\Helpers\ImmutableObjectHelperMethods;
 abstract class ImmutableObject implements ImmutableType
 {
     use ImmutableObjectHelperMethods;
-
-    /**
-     * Returns a description of the object
-     *
-     * @see Type
-     *
-     * @static
-     * @abstract
-     * @return string - Returns the name of the object type
-     */
-    abstract public static function getType(): string;
 }

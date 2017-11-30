@@ -32,37 +32,4 @@ use simondeeley\Helpers\ImmutableObjectHelperMethods;
 abstract class ImmutableArrayTypeObject implements ImmutableType, ArrayAccess
 {
     use ImmutableArrayHelperMethods, ImmutableObjectHelperMethods;
-
-    /**
-     * Get property
-     *
-     * @see http://php.net/manual/en/arrayaccess.offsetget.php
-     *
-     * @abstract
-     * @param string $property - Name of the property to get
-     * @return mixed - Returns value of the property
-     */
-    abstract public function offsetGet($property);
-
-    /**
-     * Check that a property exists
-     *
-     * @see http://php.net/manual/en/arrayaccess.offsetexists.php
-     *
-     * @abstract
-     * @param string $property - Name of the property to check
-     * @return bool - Returns true if property exists
-     */
-    abstract public function offsetExists($property);
-
-    /**
-     * Returns a description of the object
-     *
-     * @see simondeeley\Type\Type
-     *
-     * @static
-     * @abstract
-     * @return string - Returns the name of the object type
-     */
-    abstract public static function getType(): string;
 }

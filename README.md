@@ -16,7 +16,7 @@ Installation
 ============
 
 ```
-    composer require simondeeley/type
+composer require simondeeley/type
 ```
 
 Usage

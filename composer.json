@@ -33,5 +33,11 @@
     "psr-4": {
       "simondeeley\\Tests\\": "tests/"
     }
-  }
+  },
+  "minimum-stability": "dev",
+   "extra": {
+       "branch-alias": {
+           "dev-master": "1.2-dev"
+       }
+   }
 }

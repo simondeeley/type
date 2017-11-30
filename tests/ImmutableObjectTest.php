@@ -10,13 +10,8 @@ declare(strict_types=1);
 
 namespace simondeeley\Tests;
 
-use RuntimeException;
-use ReflectionClass;
 use PHPUnit\Framework\TestCase;
-use simondeeley\Type\ImmutableType;
 use simondeeley\ImmutableObject;
-use simondeeley\Helpers\ImmutableObjectHelperMethods;
-use simondeeley\Tests\TestCaseHelperMethods;
 
 /**
  * Test ImmutableArrayTypeObject
@@ -26,75 +21,33 @@ use simondeeley\Tests\TestCaseHelperMethods;
  */
 final class ImmutableObjectTest extends TestCase
 {
-    use TestCaseHelperMethods;
-
     /**
-     * Test interface implementations
+     * Test ImmutableObject prevents setting properties
      *
      * @test
-     * @return void
-     */
-    final public function classShouldImplementInterfaces(): void
-    {
-        $type = new ReflectionClass(ImmutableObject::class);
-
-        $this->assertTrue($type->implementsInterface(ImmutableType::class));
-    }
-
-    /**
-     * Test class has methods
-     *
-     * @test
-     * @dataProvider allMethods
-     * @param string $method - Method name
-     * @param array $parameters - The paramaters to pass
-     * @return void
-     */
-    final public function classShouldHaveCorrectMethods(string $method, array $parameters): void
-    {
-        $type = new ReflectionClass(ImmutableObject::class);
-
-        $this->assertTrue($type->hasMethod($method));
-    }
-
-    /**
-     * Test exceptions are thrown
-     *
-     * @test
-     * @dataProvider implementedMethods
-     * @expectedException \RuntimeException
-     * @param string $method - Method name
-     * @param array $parameter - The paramaters to pass
-     * @return void
-     */
-    final public function shouldThrowAnException(string $method, array $parameters): void
-    {
-        $type = $this->getMockForAbstractClass(ImmutableObject::class);
-
-        call_user_func_array(array($type, $method), $parameters);
-    }
-
-    /**
-     * Return methods that should be present
-     *
-     * @see https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
+     * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
      * @final
-     * @return array
+     * @return void
      */
-    final public function allMethods(): array
+    final public function shouldThrowExceptionWhenMagicSetIsCalled(): void
     {
-        return $this->getDataProviderArray(ImmutableType::class);
+        $object = $this->getMockForAbstractClass(ImmutableObject::class);
+
+        $object->foo = 'test';
     }
 
     /**
-     * Returns methods that should throw exception
+     * Test ImmutableObject prevents unsetting properties
      *
-     * @see https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers
+     * @test
+     * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
      * @final
-     * @return array
+     * @return void
      */
-    final public function implementedMethods(): array
+    final public function shouldThrowExceptionWhenMagicUnsetIsCalled(): void
     {
-        return $this->getDataProviderArray(ImmutableObjectHelperMethods::class);
+        $object = $this->getMockForAbstractClass(ImmutableObject::class);
+
+        unset($object->foo);
     }
 }
