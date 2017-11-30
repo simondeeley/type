@@ -17,7 +17,7 @@ use simondeeley\ImmutableObject;
  * Test ImmutableArrayTypeObject
  *
  * @author Simon Deeley <s.deeley@icloud.com>
- * @uses TestCase
+ * @uses simondeeley\ImmutableObject
  */
 final class ImmutableObjectTest extends TestCase
 {
@@ -26,6 +26,7 @@ final class ImmutableObjectTest extends TestCase
      *
      * @test
      * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
+     * @expectedMessage Cannot change property of immutable object
      * @final
      * @return void
      */
@@ -41,6 +42,7 @@ final class ImmutableObjectTest extends TestCase
      *
      * @test
      * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
+     * @expectedMessage Cannot change property of immutable object
      * @final
      * @return void
      */
