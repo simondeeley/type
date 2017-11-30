@@ -12,7 +12,6 @@ namespace simondeeley\Tests;
 
 use PHPUnit\Framework\TestCase;
 use simondeeley\ImmutableArrayTypeObject;
-use simondeeley\Exceptions\ImmutableMethodCallException;
 
 /**
  * Test ImmutableArrayTypeObject
@@ -26,7 +25,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * Test ImmutableObject prevents setting offsets
      *
      * @test
-     * @expectedException ImmutableMethodCallException
+     * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
      * @final
      * @return void
      */
@@ -42,7 +41,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      *
      *
      * @test
-     * @expectedException ImmutableMethodCallException
+     * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
      * @final
      * @return void
      */
