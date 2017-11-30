@@ -1,3 +1,7 @@
+1.2.1
+=====
+* Update test suites to PHP 7.2 and include code coverage report
+
 1.2.0
 =====
 * Added [`ImmutableMethodCallException`](../blob/master/src/Exceptions/ImmutableMethodCallException.php)
