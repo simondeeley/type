@@ -26,6 +26,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      *
      * @test
      * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
+     * @expectedMessage Cannot change property of immutable object
      * @final
      * @return void
      */
@@ -41,6 +42,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      *
      * @test
      * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
+     * @expectedMessage Cannot change property of immutable object
      * @final
      * @return void
      */
