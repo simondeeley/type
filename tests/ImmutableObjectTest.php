@@ -17,7 +17,7 @@ use simondeeley\ImmutableObject;
  * Test ImmutableArrayTypeObject
  *
  * @author Simon Deeley <s.deeley@icloud.com>
- * @uses ImmutableObject
+ * @uses simondeeley\ImmutableObject
  */
 final class ImmutableObjectTest extends TestCase
 {
