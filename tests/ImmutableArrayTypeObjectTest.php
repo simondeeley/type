@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 namespace simondeeley\Tests;
 
-use RuntimeException;
 use PHPUnit\Framework\TestCase;
 use simondeeley\ImmutableArrayTypeObject;
+use simondeeley\Exceptions\ImmutableMethodCallException;
 
 /**
  * Test ImmutableArrayTypeObject
@@ -26,7 +26,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      * Test ImmutableObject prevents setting offsets
      *
      * @test
-     * @expectedException RuntimeException
+     * @expectedException ImmutableMethodCallException
      * @final
      * @return void
      */
@@ -42,7 +42,7 @@ final class ImmutableArrayTypeObjectTest extends TestCase
      *
      *
      * @test
-     * @expectedException RuntimeException
+     * @expectedException ImmutableMethodCallException
      * @final
      * @return void
      */

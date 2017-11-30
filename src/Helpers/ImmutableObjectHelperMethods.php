@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace simondeeley\Helpers;
 
-use RuntimeException;
+use simondeeley\Exceptions\ImmutableMethodCallException;
 
 /**
  * Helper trait to implement immutable objects
@@ -28,15 +28,11 @@ trait ImmutableObjectHelperMethods
      * @param string $property - Property name to set
      * @param mixed $value - Mixed value to set property to
      * @return void
-     * @throws RuntimeException - Always throws an exception
+     * @throws ImmutableMethodCallException - Always throws an exception
      */
     final public function __set(string $property, $value): void
     {
-        throw new RuntimeException(sprintf(
-            'Cannot mutate property "%s" on immutable object %s',
-            $property,
-            get_class($this)
-        ));
+        throw new ImmutableMethodCallException;
     }
 
     /**
@@ -44,14 +40,10 @@ trait ImmutableObjectHelperMethods
      *
      * @param string $property - Property name to set
      * @return void
-     * @throws RuntimeException - Always throws an exception
+     * @throws ImmutableMethodCallException - Always throws an exception
      */
     final public function __unset(string $property): void
     {
-        throw new RuntimeException(sprintf(
-            'Cannot unset property "%s" on immutable object %s',
-            $property,
-            get_class($this)
-        ));
+        throw new ImmutableMethodCallException;
     }
 }
