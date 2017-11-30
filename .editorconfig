@@ -21,3 +21,7 @@ indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*.xml]
+indent_size = 4
+insert_final_newline = false
