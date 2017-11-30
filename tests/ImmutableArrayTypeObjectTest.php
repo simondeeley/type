@@ -39,7 +39,6 @@ final class ImmutableArrayTypeObjectTest extends TestCase
     /**
      * Test ImmutableObject prevents calling offsetUnset
      *
-     *
      * @test
      * @expectedException simondeeley\Exceptions\ImmutableMethodCallException
      * @final
