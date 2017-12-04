@@ -16,6 +16,3 @@ cache:
 
 before_script:
   - composer install --no-interaction
-
-after_script:
-  -  php tests/coverage.php clover.xml $COVERAGE
