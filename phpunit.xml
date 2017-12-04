@@ -26,6 +26,11 @@
     </whitelist>
   </filter>
   <logging>
-    <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
+    <log type="coverage-text"
+         target="php://stdout"
+         showUncoveredFiles="true"
+         lowUpperBound="35"
+         highLowerBound="70"
+      />
   </logging>
 </phpunit>
