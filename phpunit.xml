@@ -26,10 +26,10 @@
     </whitelist>
   </filter>
   <logging>
-    <log type="coverage-text"
+    <log type="coverage-clover"
          target="./coverage.clover"
          showUncoveredFiles="true"
-         lowUpperBound="35"
+         lowUpperBocoverage-clovernd="35"
          highLowerBound="70"
       />
   </logging>
