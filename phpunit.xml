@@ -15,7 +15,7 @@
   >
 
 	<testsuites>
-		<testsuite name="simondeeley/enum test suit">
+		<testsuite name="simondeeley/type test suit">
 			<directory>tests/</directory>
 		</testsuite>
 	</testsuites>
