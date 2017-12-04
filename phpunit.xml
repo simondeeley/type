@@ -29,8 +29,6 @@
     <log type="coverage-clover"
          target="./coverage.clover"
          showUncoveredFiles="true"
-         lowUpperBocoverage-clovernd="35"
-         highLowerBound="70"
       />
   </logging>
 </phpunit>
