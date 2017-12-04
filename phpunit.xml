@@ -15,7 +15,7 @@
   >
 
 	<testsuites>
-		<testsuite name="simondeeley/enum test suit">
+		<testsuite name="simondeeley/type test suit">
 			<directory>tests/</directory>
 		</testsuite>
 	</testsuites>
@@ -26,7 +26,9 @@
     </whitelist>
   </filter>
   <logging>
-    <log type="coverage-clover" target="./clover.xml"/>
-    <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
+    <log type="coverage-clover"
+         target="./coverage.clover"
+         showUncoveredFiles="true"
+      />
   </logging>
 </phpunit>
